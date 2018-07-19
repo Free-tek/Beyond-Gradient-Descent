@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bgd.layers.layer module &mdash; Beyond Gradient Descent 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bgd.layers.max_pooling module" href="bgd.layers.max_pooling.html" />
+    <link rel="prev" title="bgd.layers.flatten module" href="bgd.layers.flatten.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Beyond Gradient Descent
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../math/mathematical_framework.html">Mathematical Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure.html">Structure</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">bgd</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="bgd.html">bgd package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="bgd.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="bgd.layers.html">bgd.layers package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bgd.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Beyond Gradient Descent</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">bgd</a> &raquo;</li>
+        
+          <li><a href="bgd.html">bgd package</a> &raquo;</li>
+        
+          <li><a href="bgd.layers.html">bgd.layers package</a> &raquo;</li>
+        
+      <li>bgd.layers.layer module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/bgd/bgd.layers.layer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-bgd.layers.layer">
+<span id="bgd-layers-layer-module"></span><h1>bgd.layers.layer module<a class="headerlink" href="#module-bgd.layers.layer" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="bgd.layers.layer.Layer">
+<em class="property">class </em><code class="descclassname">bgd.layers.layer.</code><code class="descname">Layer</code><span class="sig-paren">(</span><em>copy=False</em>, <em>save_input=True</em>, <em>save_output=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for neural and non-neural layers.
+Each layer must implement methods ‘_forward’ and
+‘_backward’: the output shape during forward pass
+must be equal to the input shape during backward pass,
+and vice versa.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>copy</strong> (<em>bool</em>) – Whether to copy layer output.</li>
+<li><strong>save_input</strong> (<em>bool</em>) – Whether to keep a reference to the input array..</li>
+<li><strong>save_output</strong> (<em>bool</em>) – Whether to keep a reference to the output array.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="bgd.layers.layer.Layer.input_shape">
+<code class="descname">input_shape</code><a class="headerlink" href="#bgd.layers.layer.Layer.input_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – Shape of the input array.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bgd.layers.layer.Layer.current_input">
+<code class="descname">current_input</code><a class="headerlink" href="#bgd.layers.layer.Layer.current_input" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code> – Reference to the current input array.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bgd.layers.layer.Layer.current_output">
+<code class="descname">current_output</code><a class="headerlink" href="#bgd.layers.layer.Layer.current_output" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code> – Reference to the current output array.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bgd.layers.layer.Layer.propagate">
+<code class="descname">propagate</code><a class="headerlink" href="#bgd.layers.layer.Layer.propagate" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – Whether to propagate the signal. This is usually
+set to False for the first layer of a sequential
+model for example. Indeed, the first layer has no
+neighbouring layer to transfer the signal to.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgd.layers.layer.Layer._backward">
+<code class="descname">_backward</code><span class="sig-paren">(</span><em>error</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer._backward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer._backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapped method for applying a backward pass on input X.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgd.layers.layer.Layer._forward">
+<code class="descname">_forward</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer._forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer._forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapped method for applying a forward pass on input X.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgd.layers.layer.Layer.activate_propagation">
+<code class="descname">activate_propagation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer.activate_propagation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer.activate_propagation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate signal propagation during backpropagation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgd.layers.layer.Layer.backward">
+<code class="descname">backward</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer.backward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper method for method ‘_backward’. Given an input array,
+checks the array shape, update parameters and propagate the
+signal if needed (and if layer is learnable).</p>
+<p>Returns a tuple of size 2 where first element is the signal to
+propagate and the second element is the error gradient with respect
+to the parameters of the layer. If propagation is deactivated
+for current layer, then the signal is replaced by None.
+If layer is non-learnable, the gradient is replaced by None.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgd.layers.layer.Layer.deactivate_propagation">
+<code class="descname">deactivate_propagation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer.deactivate_propagation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer.deactivate_propagation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivate signal propagation during backpropagation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgd.layers.layer.Layer.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper method for method ‘_forward’. Given an input array,
+checks the input shape, computes the output and saves the output if needed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code>) – Input array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgd.layers.layer.Layer.get_parameters">
+<code class="descname">get_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer.get_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retuns a tuple containing the parameters of the layer.
+If layer is non-learnable, None is returned instead.
+The tuple can have a size &gt; 1 for convenience. For example,
+a convolutional neural layer has one array for the filters
+weights and one array for the biases.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgd.layers.layer.Layer.learnable">
+<code class="descname">learnable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer.learnable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer.learnable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tells whether the layer has learnable parameters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgd.layers.layer.Layer.update_parameters">
+<code class="descname">update_parameters</code><span class="sig-paren">(</span><em>delta_fragments</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bgd/layers/layer.html#Layer.update_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bgd.layers.layer.Layer.update_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update parameters: base class has no learnable parameters.
+Subclasses that are learnable must override this method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta_fragments</strong> (<em>tuple</em>) – Tuple of NumPy arrays. Each array is a parameter update vector
+and is used to update parameters using the following formula:
+params = params - delta_fragment.
+The tuple can have a size &gt; 1 for convenience. For example,
+a convolutional neural layer has one array to update the filters
+weights and one array to update the biases:
+weights = weights - delta_fragments[0]
+biases  = biases  - delta_fragments[1]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bgd.layers.max_pooling.html" class="btn btn-neutral float-right" title="bgd.layers.max_pooling module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bgd.layers.flatten.html" class="btn btn-neutral" title="bgd.layers.flatten module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Antoine Passemiers and Robin Petit.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
